@@ -1,0 +1,15 @@
+.cont{
+    display: flex;
+    
+}
+.item{
+    margin-right: 70px;
+   
+}
+a{
+    color: white;
+
+}
+a:hover{
+    background-color: gray;
+}

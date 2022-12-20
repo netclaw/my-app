@@ -1,0 +1,9 @@
+<div class="productcard">
+    <h2>{{ p.libele}}</h2>  
+    <img src="{{p.imageUrl}}"/>
+    <p>Prix: {{ p.prix }}DH</p>
+    <button *ngIf="p.availability==true" (click)="clicked(p)" >{{mess}}</button>
+    <br/>
+    <span [ngStyle]="{color:getColor()}">{{p.availability?'En stock':'En rupture de stock'}}</span>
+
+</div>
