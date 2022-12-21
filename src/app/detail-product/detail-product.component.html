@@ -1,3 +1,4 @@
+
 <div class="productcard">
     <a routerLink="productdetail/{{p.id}}">
     <h2>{{ p.libele}}</h2>  
@@ -8,5 +9,4 @@
     <span [ngStyle]="{color:getColor()}">{{p.availability?'En stock':'En rupture de stock'}}</span>
     </a>
     <br>
-    <button *ngIf="p.availability==true" (click)="clicked(p)" >{{mess}}</button>
 </div>

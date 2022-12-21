@@ -1,17 +1,17 @@
 .productcard {
     box-sizing: border-box;
-    width: 30%;
     margin: 20px auto;
     padding: 10px 30px;
     box-shadow: lightgray 4px 4px 20px;
+    flex:1;
 
 
     
    
   }
-.productcard > img {
+/* .productcard > img {
     width: 100%;
-}
+} */
 .productcard >     p {
     font-weight: 300;
     font-size: 16px;

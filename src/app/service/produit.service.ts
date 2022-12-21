@@ -16,5 +16,9 @@ new Product(3,"Wii",4000,"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wC
     return this.products;
 
   }
+  getProductById(idc:number){
+    return this.products.filter(x=>x.id==idc)[0];
+
+  }
 }
 
