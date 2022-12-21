@@ -9,6 +9,7 @@ import { PanierComponent } from './panier/panier.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'',component: ListProductComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

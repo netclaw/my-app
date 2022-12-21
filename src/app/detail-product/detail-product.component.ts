@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { Product } from '../model/Product';
+import { PanierService } from '../service/panier.service';
 import { ProduitService } from '../service/produit.service';
 
 @Component({
@@ -12,9 +13,11 @@ export class DetailProductComponent implements OnInit {
 
   p!:Product;
   mess:string='Ajouter au panier';
+  @Output() clickedProduct=new EventEmitter<Product>();
 
 
-  constructor(private router:ActivatedRoute,private productService:ProduitService) { }
+
+  constructor(private router:ActivatedRoute,private productService:ProduitService,private panierService:PanierService) { }
 
   ngOnInit(): void {
     const productId=+this.router.snapshot.params['id'];
@@ -24,6 +27,19 @@ export class DetailProductComponent implements OnInit {
   
   getColor():string{
     return this.p.availability ? 'green' : 'red';
+  }
+  clicked(p:Product){
+    if(this.mess=='Ajouter au panier'){
+      this.clickedProduct.emit(p);
+      this.mess='Retirer du panier';
+    }
+    else{
+      this.mess='Ajouter au panier';
+      this.panierService.panier=this.panierService.panier.filter(x=>x.product.id!=p.id);
+      
+
+    }
+
   }
 
 }

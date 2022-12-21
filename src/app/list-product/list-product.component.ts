@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PanierItem } from '../model/PanierItem';
 import {Product} from '../model/Product';
 import { PanierService } from '../service/panier.service';
@@ -10,13 +11,13 @@ import { ProduitService } from '../service/produit.service';
 })
 export class ListProductComponent implements OnInit {
 
-  products!:Product[];
+  products!:Observable<Product[]>;
   panier!:Product[];
 
   constructor(private produitService:ProduitService,private panierService:PanierService){}
   
   ngOnInit(): void {
-    this.products=this.produitService.getAll();
+    this.products=this.produitService.getAllProducts2();
     this.panier=new Array<Product>();
 
   }
